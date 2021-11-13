@@ -1,0 +1,48 @@
+{% comment %}All changes are to be made to footer.liquid{% endcomment %}
+
+{% comment %} 
+Locate the following code
+<ul class="site-footer__linklist {% if inline_list %}list--inline{% endif %}">
+and add replace with the code on line 9
+{% endcomment %}
+
+<ul class="site-footer__linklist {{ section.settings.list_format }}">
+
+{% comment %}
+Within your schema, look for the following code
+{
+  "type": "header",
+  "content": {
+    "cs": "Selektor jazyka",
+    "da": "Sprogvælger",
+    "de": "Sprachauswahl",
+    "en": "Language Selector",
+    "es": "Selector de idioma",
+And above this, include the code below on lines 24 to 48
+{% endcomment %}
+
+	{
+	  "type": "header",
+ 	  "content": {
+		"en": "List Format"
+		}
+	},
+	{
+	  "type": "select",
+	  "id": "list_format",
+	  "label": "Orientation",
+  	  "options": [
+		{
+		  "group": "styles",
+		  "value": "list--inline",
+		  "label": "Horizontal"
+        },
+		{
+		  "group": "styles",
+		  "value": "",
+		  "label": "Vertical"
+		}
+	  ],
+	  "default": "list--inline",
+      "info": "Determines if footer menus are displayed in an inline row or as vertical list"
+	},
